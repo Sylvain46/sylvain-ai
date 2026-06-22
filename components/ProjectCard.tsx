@@ -2,7 +2,7 @@
 
 import type { Project } from "@/data/projects";
 import { motion, useReducedMotion } from "framer-motion";
-import Image from "next/image";
+import ProtectedImage from "@/components/ProtectedImage";
 
 export default function ProjectCard({
   project,
@@ -28,7 +28,7 @@ export default function ProjectCard({
       viewport={{ once: true, margin: "-10% 0px" }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
-      <Image
+      <ProtectedImage
         src={project.image}
         alt={project.title}
         fill

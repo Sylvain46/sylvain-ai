@@ -53,6 +53,14 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 
+img,
+[data-protected-image],
+[data-protected-media] {
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
 button:focus-visible,
 a:focus-visible {
   outline: 1px solid var(--gold);

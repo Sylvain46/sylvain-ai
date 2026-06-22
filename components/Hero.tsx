@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import Image from "next/image";
+import ProtectedImage from "@/components/ProtectedImage";
 import { publicPath } from "@/lib/paths";
 
 export default function Hero() {
@@ -15,7 +15,7 @@ export default function Hero() {
         animate={reduceMotion ? undefined : { scale: 1.12 }}
         transition={{ duration: 24, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
       >
-        <Image
+        <ProtectedImage
           src={publicPath("/media/Travel/DSC02462.jpg")}
           alt="Paysage de voyage cinematographique"
           fill

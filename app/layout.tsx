@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ImageProtection from "@/components/ImageProtection";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,7 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body>{children}</body>
+      <body>
+        <ImageProtection />
+        {children}
+      </body>
     </html>
   );
 }

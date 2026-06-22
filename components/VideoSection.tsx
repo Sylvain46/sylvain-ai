@@ -2,8 +2,8 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ProtectedImage from "@/components/ProtectedImage";
 import { publicPath } from "@/lib/paths";
-import Image from "next/image";
 import { useEffect, useRef } from "react";
 import RevealText from "./RevealText";
 
@@ -41,7 +41,7 @@ export default function VideoSection() {
   return (
     <section ref={sectionRef} className="relative min-h-screen overflow-hidden bg-[#111111] py-24">
       <div ref={mediaRef} className="absolute inset-0">
-        <Image
+        <ProtectedImage
           src={publicPath("/media/Travel/DSC02462.jpg")}
           alt="Paysage de voyage en atmosphere cinematographique"
           fill

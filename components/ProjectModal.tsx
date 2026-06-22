@@ -2,7 +2,7 @@
 
 import type { Project } from "@/data/projects";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
+import ProtectedImage from "@/components/ProtectedImage";
 import { WheelEvent, useEffect, useState } from "react";
 
 export default function ProjectModal({
@@ -13,13 +13,24 @@ export default function ProjectModal({
   onClose: () => void;
 }) {
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
+  const [expandedPhoto, setExpandedPhoto] = useState<string | null>(null);
 
   useEffect(() => {
     if (!project) return;
     setSelectedPhoto(project.image);
+    setExpandedPhoto(null);
+  }, [project]);
+
+  useEffect(() => {
+    if (!project) return;
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
+      if (event.key !== "Escape") return;
+      if (expandedPhoto) {
+        setExpandedPhoto(null);
+        return;
+      }
+      onClose();
     };
 
     document.body.style.overflow = "hidden";
@@ -29,11 +40,16 @@ export default function ProjectModal({
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [onClose, project]);
+  }, [expandedPhoto, onClose, project]);
 
   if (!project) return null;
 
   const activePhoto = selectedPhoto ?? project.image;
+  const openPhoto = (src: string) => {
+    setSelectedPhoto(src);
+    setExpandedPhoto(src);
+  };
+
   const handleAlbumWheel = (event: WheelEvent<HTMLDivElement>) => {
     const scroller = event.currentTarget.querySelector<HTMLDivElement>("[data-gallery-scroller]");
     if (!scroller || scroller.scrollHeight <= scroller.clientHeight) return;
@@ -88,22 +104,31 @@ export default function ProjectModal({
               className="grid min-h-0 flex-1 overflow-hidden md:grid-cols-[0.92fr_1.08fr]"
               onWheel={handleAlbumWheel}
             >
-              <div className="relative hidden min-h-[62vh] border-r border-white/10 md:block">
-                <Image src={activePhoto} alt={project.title} fill sizes="46vw" className="object-cover" />
+              <div data-protected-media className="relative hidden min-h-[62vh] border-r border-white/10 md:block">
+                <ProtectedImage src={activePhoto} alt={project.title} fill sizes="46vw" className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
               </div>
 
               <div data-gallery-scroller className="h-full min-h-0 overflow-y-auto overscroll-contain p-4 sm:p-6">
+                <button
+                  type="button"
+                  aria-label="Agrandir la photo selectionnee"
+                  onClick={() => setExpandedPhoto(activePhoto)}
+                  className="relative mb-4 block aspect-[4/5] w-full overflow-hidden border border-white/10 bg-[#111111] md:hidden"
+                >
+                  <ProtectedImage src={activePhoto} alt={project.title} fill sizes="100vw" className="object-contain" />
+                </button>
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                   {project.photos.map((photo, index) => (
                     <button
                       key={photo.src}
                       type="button"
                       aria-label={`Voir la photo ${index + 1} de l'album ${project.title}`}
-                      onClick={() => setSelectedPhoto(photo.src)}
+                      onClick={() => openPhoto(photo.src)}
+                      onPointerUp={() => openPhoto(photo.src)}
                       className="group relative aspect-[4/5] overflow-hidden border border-white/10 bg-[#111111] text-left transition duration-500 hover:border-[#c8ad7f]/45"
                     >
-                      <Image
+                      <ProtectedImage
                         src={photo.src}
                         alt={photo.alt}
                         fill
@@ -117,6 +142,47 @@ export default function ProjectModal({
               </div>
             </div>
           </motion.div>
+
+          <AnimatePresence>
+            {expandedPhoto ? (
+              <motion.div
+                role="dialog"
+                aria-modal="true"
+                aria-label="Photo en grand"
+                className="fixed inset-0 z-[90] flex items-center justify-center bg-black/95 p-4 md:hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onMouseDown={() => setExpandedPhoto(null)}
+              >
+                <button
+                  type="button"
+                  aria-label="Fermer la photo"
+                  onClick={() => setExpandedPhoto(null)}
+                  className="absolute right-4 top-4 z-10 border border-white/14 bg-black/30 px-4 py-3 text-xs uppercase tracking-[0.22em] text-white/82 backdrop-blur-md"
+                >
+                  Fermer
+                </button>
+                <motion.div
+                  data-protected-media
+                  className="relative h-[82dvh] w-full overflow-hidden"
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+                  onMouseDown={(event) => event.stopPropagation()}
+                >
+                  <ProtectedImage
+                    src={expandedPhoto}
+                    alt={`${project.title} en grand`}
+                    fill
+                    sizes="100vw"
+                    className="object-contain"
+                  />
+                </motion.div>
+              </motion.div>
+            ) : null}
+          </AnimatePresence>
         </motion.div>
       ) : null}
     </AnimatePresence>
