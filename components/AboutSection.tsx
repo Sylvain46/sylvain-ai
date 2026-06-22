@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { publicPath } from "@/lib/paths";
 import RevealText from "./RevealText";
 
 export default function AboutSection() {
@@ -7,7 +8,7 @@ export default function AboutSection() {
       <div className="section-shell grid items-center gap-12 md:grid-cols-[0.92fr_1fr] lg:gap-20">
         <RevealText className="relative min-h-[520px] overflow-hidden border border-white/10 bg-[#161616]">
           <Image
-            src="/media/Portraits/DSC02899.jpg"
+            src={publicPath("/media/Portraits/DSC02899.jpg")}
             alt="Portrait cinematographique"
             fill
             sizes="(min-width: 768px) 45vw, 100vw"

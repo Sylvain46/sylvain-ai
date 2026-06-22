@@ -2,6 +2,7 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { publicPath } from "@/lib/paths";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import RevealText from "./RevealText";
@@ -41,7 +42,7 @@ export default function VideoSection() {
     <section ref={sectionRef} className="relative min-h-screen overflow-hidden bg-[#111111] py-24">
       <div ref={mediaRef} className="absolute inset-0">
         <Image
-          src="/media/Travel/DSC02462.jpg"
+          src={publicPath("/media/Travel/DSC02462.jpg")}
           alt="Paysage de voyage en atmosphere cinematographique"
           fill
           sizes="100vw"

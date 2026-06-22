@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
+import { publicPath } from "@/lib/paths";
 
 export default function Hero() {
   const reduceMotion = useReducedMotion();
@@ -15,7 +16,7 @@ export default function Hero() {
         transition={{ duration: 24, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
       >
         <Image
-          src="/media/Travel/DSC02462.jpg"
+          src={publicPath("/media/Travel/DSC02462.jpg")}
           alt="Paysage de voyage cinematographique"
           fill
           priority
