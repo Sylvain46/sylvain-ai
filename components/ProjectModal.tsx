@@ -3,7 +3,7 @@
 import type { Project } from "@/data/projects";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { WheelEvent, useEffect, useState } from "react";
 
 export default function ProjectModal({
   project,
@@ -34,6 +34,14 @@ export default function ProjectModal({
   if (!project) return null;
 
   const activePhoto = selectedPhoto ?? project.image;
+  const handleAlbumWheel = (event: WheelEvent<HTMLDivElement>) => {
+    const scroller = event.currentTarget.querySelector<HTMLDivElement>("[data-gallery-scroller]");
+    if (!scroller || scroller.scrollHeight <= scroller.clientHeight) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    scroller.scrollTop += event.deltaY;
+  };
 
   return (
     <AnimatePresence>
@@ -42,21 +50,21 @@ export default function ProjectModal({
           role="dialog"
           aria-modal="true"
           aria-label={`Album ${project.title}`}
-          className="fixed inset-0 z-[70] bg-black/88 p-4 backdrop-blur-xl"
+          className="fixed inset-0 z-[70] overflow-y-auto bg-black/88 p-4 backdrop-blur-xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onMouseDown={onClose}
         >
           <motion.div
-            className="mx-auto flex max-h-[92vh] w-full max-w-7xl flex-col overflow-hidden border border-white/12 bg-[#080808]"
+            className="mx-auto flex h-[calc(100dvh-2rem)] max-h-[920px] w-full max-w-7xl flex-col overflow-hidden border border-white/12 bg-[#080808]"
             initial={{ opacity: 0, y: 28, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.98 }}
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             onMouseDown={(event) => event.stopPropagation()}
           >
-            <div className="flex items-start justify-between gap-5 border-b border-white/10 p-5 sm:p-7">
+            <div className="shrink-0 flex items-start justify-between gap-5 border-b border-white/10 p-5 sm:p-7">
               <div>
                 <div className="mb-3 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.22em] text-[#c8ad7f]">
                   <span>{project.category}</span>
@@ -76,13 +84,16 @@ export default function ProjectModal({
               </button>
             </div>
 
-            <div className="grid min-h-0 flex-1 md:grid-cols-[0.92fr_1.08fr]">
+            <div
+              className="grid min-h-0 flex-1 overflow-hidden md:grid-cols-[0.92fr_1.08fr]"
+              onWheel={handleAlbumWheel}
+            >
               <div className="relative hidden min-h-[62vh] border-r border-white/10 md:block">
                 <Image src={activePhoto} alt={project.title} fill sizes="46vw" className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
               </div>
 
-              <div className="overflow-y-auto p-4 sm:p-6">
+              <div data-gallery-scroller className="h-full min-h-0 overflow-y-auto overscroll-contain p-4 sm:p-6">
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                   {project.photos.map((photo, index) => (
                     <button
