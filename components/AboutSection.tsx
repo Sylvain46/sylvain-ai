@@ -4,7 +4,8 @@ import RevealText from "./RevealText";
 
 export default function AboutSection() {
   return (
-    <section id="apropos" className="bg-[#050505] py-28 sm:py-36">
+    <section id="about" className="relative bg-[#050505] py-28 sm:py-36">
+      <span id="apropos" className="absolute top-0" aria-hidden="true" />
       <div className="section-shell grid items-center gap-12 md:grid-cols-[0.92fr_1fr] lg:gap-20">
         <RevealText className="relative min-h-[520px] overflow-hidden border border-white/10 bg-[#161616]">
           <ProtectedImage
