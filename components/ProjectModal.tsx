@@ -3,7 +3,7 @@
 import type { Project } from "@/data/projects";
 import { AnimatePresence, motion } from "framer-motion";
 import ProtectedImage from "@/components/ProtectedImage";
-import { WheelEvent, useEffect, useState } from "react";
+import { MouseEvent, WheelEvent, useEffect, useState } from "react";
 
 export default function ProjectModal({
   project,
@@ -48,6 +48,17 @@ export default function ProjectModal({
   const openPhoto = (src: string) => {
     setSelectedPhoto(src);
     setExpandedPhoto(src);
+  };
+
+  const closeExpandedPhoto = (event?: MouseEvent<HTMLElement>) => {
+    event?.preventDefault();
+    event?.stopPropagation();
+    setExpandedPhoto(null);
+  };
+
+  const closeExpandedPhotoFromBackdrop = (event: MouseEvent<HTMLDivElement>) => {
+    if (event.target !== event.currentTarget) return;
+    closeExpandedPhoto(event);
   };
 
   const handleAlbumWheel = (event: WheelEvent<HTMLDivElement>) => {
@@ -153,12 +164,14 @@ export default function ProjectModal({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                onMouseDown={() => setExpandedPhoto(null)}
+                onMouseDown={closeExpandedPhotoFromBackdrop}
+                onClick={(event) => event.stopPropagation()}
               >
                 <button
                   type="button"
                   aria-label="Fermer la photo"
-                  onClick={() => setExpandedPhoto(null)}
+                  onMouseDown={closeExpandedPhoto}
+                  onClick={(event) => event.stopPropagation()}
                   className="absolute right-4 top-4 z-10 border border-white/14 bg-black/30 px-4 py-3 text-xs uppercase tracking-[0.22em] text-white/82 backdrop-blur-md"
                 >
                   Fermer
