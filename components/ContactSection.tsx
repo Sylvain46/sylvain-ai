@@ -20,14 +20,13 @@ export default function ContactSection() {
             aurorart.run@gmail.com
           </a>
           <div className="mt-12 flex flex-wrap gap-5 text-sm uppercase tracking-[0.18em] text-white/48">
-            <a href="#" className="transition duration-500 hover:text-white">
+            <a
+              href="https://www.instagram.com/sylvn.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition duration-500 hover:text-white"
+            >
               Instagram
-            </a>
-            <a href="#" className="transition duration-500 hover:text-white">
-              Vimeo
-            </a>
-            <a href="#" className="transition duration-500 hover:text-white">
-              LinkedIn
             </a>
           </div>
         </RevealText>
