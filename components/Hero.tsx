@@ -32,27 +32,17 @@ export default function Hero() {
         transition={{ duration: 22, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
       >
         <ProtectedImage
-          src={publicPath("/media/Aventure et voyage/couverture Aventure.jpg")}
+          src={publicPath("/media/Aventure et voyage/DSC02159.jpg")}
           alt="Paysage de voyage cinématique"
           fill
           priority
           sizes="100vw"
-          className="scale-110 object-cover blur-xl"
+          className="object-cover object-[center_42%]"
         />
       </motion.div>
-      <div className="absolute inset-x-4 bottom-[38%] top-24 lg:hidden">
-        <ProtectedImage
-          src={publicPath("/media/Aventure et voyage/couverture Aventure.jpg")}
-          alt="Paysage de voyage cinématique"
-          fill
-          priority
-          sizes="100vw"
-          className="object-contain opacity-78"
-        />
-      </div>
 
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.92),rgba(5,5,5,0.52),rgba(5,5,5,0.76))] lg:bg-[linear-gradient(90deg,rgba(5,5,5,0.9),rgba(5,5,5,0.48),rgba(5,5,5,0.76))]" />
-      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#050505] to-transparent" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.58),rgba(5,5,5,0.28)_36%,rgba(5,5,5,0.9)_82%,rgba(5,5,5,0.98))] lg:bg-[linear-gradient(90deg,rgba(5,5,5,0.9),rgba(5,5,5,0.48),rgba(5,5,5,0.76))]" />
+      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#050505] to-transparent lg:block" />
 
       <div className="section-shell relative z-10 flex min-h-[100svh] items-end pb-9 pt-28 lg:min-h-screen lg:items-center lg:pb-0 lg:pt-20">
         <div className="max-w-4xl">
