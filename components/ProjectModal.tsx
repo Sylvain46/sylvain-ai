@@ -2,6 +2,7 @@
 
 import type { Project } from "@/data/projects";
 import { AnimatePresence, motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import ProtectedImage from "@/components/ProtectedImage";
 import { MouseEvent, WheelEvent, useEffect, useState } from "react";
 
@@ -25,12 +26,29 @@ export default function ProjectModal({
     if (!project) return;
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key !== "Escape") return;
-      if (expandedPhoto) {
-        setExpandedPhoto(null);
+      if (event.key === "Escape") {
+        if (expandedPhoto) {
+          setExpandedPhoto(null);
+          return;
+        }
+        onClose();
+      }
+
+      if (!expandedPhoto) return;
+
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        const currentIndex = project.photos.findIndex((photo) => photo.src === expandedPhoto);
+        const fallbackIndex = currentIndex === -1 ? 0 : currentIndex;
+        const offset = event.key === "ArrowLeft" ? -1 : 1;
+        const nextIndex = (fallbackIndex + offset + project.photos.length) % project.photos.length;
+        const nextPhoto = project.photos[nextIndex]?.src;
+
+        if (nextPhoto) {
+          setSelectedPhoto(nextPhoto);
+          setExpandedPhoto(nextPhoto);
+        }
         return;
       }
-      onClose();
     };
 
     document.body.style.overflow = "hidden";
@@ -59,6 +77,21 @@ export default function ProjectModal({
   const closeExpandedPhotoFromBackdrop = (event: MouseEvent<HTMLDivElement>) => {
     if (event.target !== event.currentTarget) return;
     closeExpandedPhoto(event);
+  };
+
+  const showAdjacentPhoto = (offset: -1 | 1, event?: MouseEvent<HTMLButtonElement>) => {
+    event?.preventDefault();
+    event?.stopPropagation();
+
+    const sourcePhoto = expandedPhoto ?? activePhoto;
+    const currentIndex = project.photos.findIndex((photo) => photo.src === sourcePhoto);
+    const fallbackIndex = currentIndex === -1 ? 0 : currentIndex;
+    const nextIndex = (fallbackIndex + offset + project.photos.length) % project.photos.length;
+    const nextPhoto = project.photos[nextIndex]?.src;
+
+    if (!nextPhoto) return;
+    setSelectedPhoto(nextPhoto);
+    setExpandedPhoto(nextPhoto);
   };
 
   const handleAlbumWheel = (event: WheelEvent<HTMLDivElement>) => {
@@ -116,7 +149,7 @@ export default function ProjectModal({
               onWheel={handleAlbumWheel}
             >
               <div data-protected-media className="relative hidden min-h-[62vh] border-r border-white/10 md:block">
-                <ProtectedImage src={activePhoto} alt={project.title} fill sizes="46vw" className="object-cover" />
+                <ProtectedImage src={activePhoto} alt={project.title} fill sizes="46vw" className="object-contain" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
               </div>
 
@@ -160,7 +193,7 @@ export default function ProjectModal({
                 role="dialog"
                 aria-modal="true"
                 aria-label="Photo en grand"
-                className="fixed inset-0 z-[90] flex items-center justify-center bg-black/95 p-4 md:hidden"
+                className="fixed inset-0 z-[90] flex items-center justify-center bg-black/95 p-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -176,9 +209,27 @@ export default function ProjectModal({
                 >
                   Fermer
                 </button>
+                <button
+                  type="button"
+                  aria-label="Photo precedente"
+                  onMouseDown={(event) => showAdjacentPhoto(-1, event)}
+                  onClick={(event) => event.stopPropagation()}
+                  className="absolute left-3 top-1/2 z-10 flex size-11 -translate-y-1/2 items-center justify-center border border-white/14 bg-black/30 text-white/82 backdrop-blur-md transition duration-300 hover:border-[#c8ad7f]/60 hover:text-white sm:left-5 sm:size-12"
+                >
+                  <ChevronLeft aria-hidden="true" className="size-5" strokeWidth={1.4} />
+                </button>
+                <button
+                  type="button"
+                  aria-label="Photo suivante"
+                  onMouseDown={(event) => showAdjacentPhoto(1, event)}
+                  onClick={(event) => event.stopPropagation()}
+                  className="absolute right-3 top-1/2 z-10 flex size-11 -translate-y-1/2 items-center justify-center border border-white/14 bg-black/30 text-white/82 backdrop-blur-md transition duration-300 hover:border-[#c8ad7f]/60 hover:text-white sm:right-5 sm:size-12"
+                >
+                  <ChevronRight aria-hidden="true" className="size-5" strokeWidth={1.4} />
+                </button>
                 <motion.div
                   data-protected-media
-                  className="relative h-[82dvh] w-full overflow-hidden"
+                  className="relative h-[82dvh] w-[calc(100vw-2rem)] overflow-hidden sm:h-[86dvh] sm:w-[calc(100vw-8rem)]"
                   initial={{ opacity: 0, scale: 0.96 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.98 }}
