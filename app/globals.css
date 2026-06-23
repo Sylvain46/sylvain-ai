@@ -29,20 +29,6 @@ body {
   font-family: var(--font-body);
 }
 
-body::before {
-  pointer-events: none;
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 80;
-  opacity: 0.035;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.8) 1px, transparent 1px);
-  background-size: 3px 3px;
-  mix-blend-mode: overlay;
-}
-
 ::selection {
   background: rgba(200, 173, 127, 0.35);
   color: #ffffff;

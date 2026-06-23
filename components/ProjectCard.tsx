@@ -20,7 +20,7 @@ export default function ProjectCard({
       type="button"
       aria-label={`Ouvrir l'album ${project.title}`}
       onClick={onOpen}
-      className={`group relative min-h-[420px] overflow-hidden border border-white/10 bg-[#111111] text-left ${
+      className={`group relative min-h-[360px] overflow-hidden border border-white/10 bg-[#0b0b0b] text-left sm:min-h-[420px] ${
         index % 3 === 0 ? "md:col-span-2" : ""
       }`}
       initial={reduceMotion ? false : { opacity: 0, y: 52, filter: "blur(12px)" }}
@@ -30,10 +30,17 @@ export default function ProjectCard({
     >
       <ProtectedImage
         src={project.image}
+        alt=""
+        fill
+        sizes="100vw"
+        className="scale-110 object-cover opacity-45 blur-xl lg:hidden"
+      />
+      <ProtectedImage
+        src={project.image}
         alt={project.title}
         fill
         sizes="(min-width: 768px) 50vw, 100vw"
-        className="object-cover transition duration-[1400ms] ease-out group-hover:scale-105"
+        className="object-contain transition duration-[1400ms] ease-out lg:object-cover lg:group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/22 to-transparent opacity-80 transition duration-700 group-hover:opacity-95" />
       <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">

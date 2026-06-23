@@ -6,16 +6,16 @@ const services = [
     description: "Portraits, paysages, sport et instants de vie avec une intention narrative.",
   },
   {
-    title: "Video / Filmmaking",
-    description: "Films courts, reels et contenus immersifs au rendu cinematographique.",
+    title: "Vidéo / Filmmaking",
+    description: "Films courts, reels et contenus immersifs au rendu cinématique.",
   },
   {
     title: "Contenu de voyage",
-    description: "Images d'aventure, itineraires visuels et storytelling pour destinations.",
+    description: "Images d'aventure, itinéraires visuels et storytelling pour destinations.",
   },
   {
     title: "Montage / Retouche",
-    description: "Selection, rythme, couleur et finition pour renforcer l'emotion brute.",
+    description: "Sélection, rythme, couleur et finition pour renforcer l'émotion brute.",
   },
 ];
 

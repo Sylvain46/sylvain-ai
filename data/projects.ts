@@ -17,11 +17,11 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Aventure et Voyage",
-    category: "Paysages & itinerance",
+    category: "Paysages & itinérance",
     countLabel: "16 photos",
     image: publicPath("/media/Aventure et voyage/couverture Aventure.jpg"),
     description:
-      "Routes, horizons et paysages puissants captures comme des fragments d'aventure et de voyage.",
+      "Routes, horizons et paysages puissants capturés comme des fragments d'aventure et de voyage.",
     photos: [
       { src: publicPath("/media/Aventure et voyage/DSC02159.jpg"), alt: "Scene d'aventure et de voyage" },
       { src: publicPath("/media/Aventure et voyage/DSC02259.jpg"), alt: "Instant de voyage" },
@@ -29,7 +29,7 @@ export const projects: Project[] = [
       { src: publicPath("/media/Aventure et voyage/DSC02529.jpg"), alt: "Lumiere d'ailleurs" },
       { src: publicPath("/media/Aventure et voyage/DSC02966.jpg"), alt: "Route et paysage" },
       { src: publicPath("/media/Aventure et voyage/DSC03151.jpg"), alt: "Fragment d'aventure" },
-      { src: publicPath("/media/Aventure et voyage/DSC06438.jpg"), alt: "Paysage cinematographique" },
+      { src: publicPath("/media/Aventure et voyage/DSC06438.jpg"), alt: "Paysage cinématique" },
       { src: publicPath("/media/Aventure et voyage/DSC07509.jpg"), alt: "Horizon d'aventure" },
       { src: publicPath("/media/Aventure et voyage/DSC07655.jpg"), alt: "Souvenir de voyage" },
       { src: publicPath("/media/Aventure et voyage/DSC07754.jpg"), alt: "Horizon de voyage" },
@@ -43,11 +43,11 @@ export const projects: Project[] = [
   },
   {
     title: "Portraits",
-    category: "Emotions brutes",
+    category: "Émotions brutes",
     countLabel: "14 photos",
     image: publicPath("/media/Portraits/Couverture portrait.jpg"),
     description:
-      "Des regards, des presences et des instants humains travailles avec douceur et intensite.",
+      "Des regards, des présences et des instants humains travaillés avec douceur et intensité.",
     photos: [
       { src: publicPath("/media/Portraits/DSC00390.jpg"), alt: "Portrait naturel" },
       { src: publicPath("/media/Portraits/DSC01113.jpg"), alt: "Portrait en lumiere naturelle" },
@@ -61,7 +61,7 @@ export const projects: Project[] = [
       { src: publicPath("/media/Portraits/DSC04402.jpg"), alt: "Portrait avec fleur" },
       { src: publicPath("/media/Portraits/DSC04413 copie.jpg"), alt: "Portrait dans la vegetation" },
       { src: publicPath("/media/Portraits/DSC04419.jpg"), alt: "Portrait tropical" },
-      { src: publicPath("/media/Portraits/DSC04493.jpg"), alt: "Portrait cinematographique" },
+      { src: publicPath("/media/Portraits/DSC04493.jpg"), alt: "Portrait cinématique" },
       { src: publicPath("/media/Portraits/DSC04565.jpg"), alt: "Portrait intense" },
     ],
   },
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     countLabel: "18 photos",
     image: publicPath("/media/sport/Couverture sport.jpg"),
     description:
-      "Le mouvement, l'effort et l'energie d'une scene captes dans une approche vive et immersive.",
+      "Le mouvement, l'effort et l'énergie d'une scène captés dans une approche vive et immersive.",
     photos: [
       { src: publicPath("/media/sport/1.jpg"), alt: "Photographie sportive" },
       { src: publicPath("/media/sport/2.jpg"), alt: "Action sportive" },
@@ -94,22 +94,22 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Sport mecanique",
-    category: "Vitesse & caractere",
+    title: "Sport mécanique",
+    category: "Vitesse & caractère",
     countLabel: "11 photos",
     image: publicPath("/media/Sport mecanique /Couverture sport mecanique.jpg"),
     description:
-      "Carrosseries, routes et tension visuelle autour de la vitesse et de la matiere.",
+      "Carrosseries, routes et tension visuelle autour de la vitesse et de la matière.",
     photos: [
-      { src: publicPath("/media/Sport mecanique /DSC00012.jpg"), alt: "Sport mecanique" },
+      { src: publicPath("/media/Sport mecanique /DSC00012.jpg"), alt: "Sport mécanique" },
       { src: publicPath("/media/Sport mecanique /DSC00027.jpg"), alt: "Detail automobile" },
       { src: publicPath("/media/Sport mecanique /DSC00059.jpg"), alt: "Voiture en contexte" },
-      { src: publicPath("/media/Sport mecanique /DSC00065.jpg"), alt: "Ambiance mecanique" },
+      { src: publicPath("/media/Sport mecanique /DSC00065.jpg"), alt: "Ambiance mécanique" },
       { src: publicPath("/media/Sport mecanique /DSC05936.jpg"), alt: "Automobile en mouvement" },
       { src: publicPath("/media/Sport mecanique /DSC06854.jpg"), alt: "Automobile sportive" },
       { src: publicPath("/media/Sport mecanique /DSC06860.jpg"), alt: "Scene automobile" },
       { src: publicPath("/media/Sport mecanique /DSC06861.jpg"), alt: "Photographie automobile" },
-      { src: publicPath("/media/Sport mecanique /DSC06867.jpg"), alt: "Sport mecanique cinematographique" },
+      { src: publicPath("/media/Sport mecanique /DSC06867.jpg"), alt: "Sport mécanique cinématique" },
       { src: publicPath("/media/Sport mecanique /DSC07249.jpg"), alt: "Voiture et paysage" },
       { src: publicPath("/media/Sport mecanique /DSC08058.jpg"), alt: "Detail de vitesse" },
     ],

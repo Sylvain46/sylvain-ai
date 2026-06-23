@@ -3,8 +3,8 @@ import ImageProtection from "@/components/ImageProtection";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Sylvain AI - Photographe & videaste",
-  description: "Portfolio creatif de Sylvain AI, photographe et videaste d'aventure.",
+  title: "Sylvain AI - Photographe & vidéaste",
+  description: "Portfolio créatif de Sylvain AI, photographe et vidéaste d'aventure.",
 };
 
 export default function RootLayout({

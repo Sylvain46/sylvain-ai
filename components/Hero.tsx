@@ -8,16 +8,16 @@ export default function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="accueil" className="relative min-h-[100svh] overflow-hidden md:min-h-screen">
+    <section id="accueil" className="relative min-h-[100svh] overflow-hidden lg:min-h-screen">
       <motion.div
-        className="absolute inset-0 hidden md:block"
+        className="absolute inset-0 hidden lg:block"
         initial={reduceMotion ? false : { scale: 1.05 }}
         animate={reduceMotion ? undefined : { scale: 1.12 }}
         transition={{ duration: 24, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
       >
         <ProtectedImage
           src={publicPath("/media/Aventure et voyage/couverture Aventure.jpg")}
-          alt="Paysage de voyage cinematographique"
+          alt="Paysage de voyage cinématique"
           fill
           priority
           sizes="100vw"
@@ -26,35 +26,35 @@ export default function Hero() {
       </motion.div>
 
       <motion.div
-        className="absolute inset-0 md:hidden"
+        className="absolute inset-0 lg:hidden"
         initial={reduceMotion ? false : { scale: 1.02 }}
         animate={reduceMotion ? undefined : { scale: 1.08 }}
         transition={{ duration: 22, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
       >
         <ProtectedImage
           src={publicPath("/media/Aventure et voyage/couverture Aventure.jpg")}
-          alt="Paysage de voyage cinematographique"
+          alt="Paysage de voyage cinématique"
           fill
           priority
           sizes="100vw"
           className="scale-110 object-cover blur-xl"
         />
       </motion.div>
-      <div className="absolute inset-x-4 bottom-24 top-28 md:hidden">
+      <div className="absolute inset-x-4 bottom-[38%] top-24 lg:hidden">
         <ProtectedImage
           src={publicPath("/media/Aventure et voyage/couverture Aventure.jpg")}
-          alt="Paysage de voyage cinematographique"
+          alt="Paysage de voyage cinématique"
           fill
           priority
           sizes="100vw"
-          className="object-contain opacity-72"
+          className="object-contain opacity-78"
         />
       </div>
 
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.92),rgba(5,5,5,0.52),rgba(5,5,5,0.76))] md:bg-[linear-gradient(90deg,rgba(5,5,5,0.9),rgba(5,5,5,0.48),rgba(5,5,5,0.76))]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.92),rgba(5,5,5,0.52),rgba(5,5,5,0.76))] lg:bg-[linear-gradient(90deg,rgba(5,5,5,0.9),rgba(5,5,5,0.48),rgba(5,5,5,0.76))]" />
       <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#050505] to-transparent" />
 
-      <div className="section-shell relative z-10 flex min-h-[100svh] items-center pt-20 md:min-h-screen">
+      <div className="section-shell relative z-10 flex min-h-[100svh] items-end pb-9 pt-28 lg:min-h-screen lg:items-center lg:pb-0 lg:pt-20">
         <div className="max-w-4xl">
           <motion.p
             className="eyebrow mb-5"
@@ -65,7 +65,7 @@ export default function Hero() {
             Portfolio - Sylvain AI
           </motion.p>
           <motion.h1
-            className="text-balance text-5xl font-extralight leading-[0.95] tracking-normal text-white sm:text-7xl md:text-8xl lg:text-9xl"
+            className="text-balance text-5xl font-extralight leading-[0.95] tracking-normal text-white sm:text-6xl md:text-7xl lg:text-9xl"
             initial={reduceMotion ? false : { opacity: 0, y: 34, filter: "blur(16px)" }}
             animate={reduceMotion ? undefined : { opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
@@ -86,7 +86,7 @@ export default function Hero() {
             animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45 }}
           >
-            <p className="text-lg leading-8 text-white/70 sm:text-xl">
+            <p className="max-w-md text-base leading-7 text-white/72 sm:max-w-xl sm:text-xl sm:leading-8">
               Là où la nature s’ouvre, les corps vibrent, et où les machines rugissent.
             </p>
             <p className="mt-4 text-sm uppercase tracking-[0.28em] text-[#c8ad7f]">

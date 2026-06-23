@@ -43,7 +43,7 @@ export default function VideoSection() {
       <div ref={mediaRef} className="absolute inset-0">
         <ProtectedImage
           src={publicPath("/media/Aventure et voyage/DSC02462.jpg")}
-          alt="Paysage de voyage en atmosphere cinematographique"
+          alt="Paysage de voyage en atmosphère cinématique"
           fill
           sizes="100vw"
           className="object-cover"
@@ -55,7 +55,7 @@ export default function VideoSection() {
         <RevealText className="max-w-4xl">
           <p className="eyebrow">Film</p>
           <h2 className="mt-5 text-balance text-5xl font-extralight leading-tight text-white sm:text-7xl">
-            Raconter l'aventure. Garder l'intensite. Transmettre ce qui se vit sur le moment.
+            Raconter l'aventure. Garder l'intensité. Transmettre ce qui se vit sur le moment.
           </h2>
         </RevealText>
       </div>
