@@ -49,9 +49,12 @@ export default function Header() {
       className="fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl"
     >
       <nav className="section-shell flex h-20 items-center justify-between">
-        <a href="#accueil" className="text-sm font-medium tracking-[0.28em] uppercase">
-          Sylvain AI
-        </a>
+        <div className="flex items-center gap-3">
+          <a href="#accueil" className="text-sm font-medium tracking-[0.28em] uppercase">
+            Sylvain AI
+          </a>
+          <InstagramButton />
+        </div>
 
         <div className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
@@ -63,11 +66,9 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <InstagramButton />
         </div>
 
         <div className="flex items-center gap-3 md:hidden">
-          <InstagramButton />
           <button
             type="button"
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}

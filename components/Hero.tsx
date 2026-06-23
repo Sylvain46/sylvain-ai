@@ -16,7 +16,7 @@ export default function Hero() {
         transition={{ duration: 24, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
       >
         <ProtectedImage
-          src={publicPath("/media/Travel/DSC02462.jpg")}
+          src={publicPath("/media/Aventure et voyage/couverture Aventure.jpg")}
           alt="Paysage de voyage cinematographique"
           fill
           priority

@@ -42,7 +42,7 @@ export default function VideoSection() {
     <section ref={sectionRef} className="relative min-h-screen overflow-hidden bg-[#111111] py-24">
       <div ref={mediaRef} className="absolute inset-0">
         <ProtectedImage
-          src={publicPath("/media/Travel/DSC02462.jpg")}
+          src={publicPath("/media/Aventure et voyage/DSC02462.jpg")}
           alt="Paysage de voyage en atmosphere cinematographique"
           fill
           sizes="100vw"
