@@ -9,6 +9,8 @@ import RevealText from "./RevealText";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const VIDEO_URL = "https://youtube.com/";
+
 export default function VideoSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const mediaRef = useRef<HTMLDivElement | null>(null);
@@ -55,8 +57,18 @@ export default function VideoSection() {
         <RevealText className="max-w-4xl">
           <p className="eyebrow">Film</p>
           <h2 className="mt-5 text-balance text-5xl font-extralight leading-tight text-white sm:text-7xl">
-            Raconter l'aventure. Garder l'intensité. Transmettre ce qui se vit sur le moment.
+            L'intensité comme matière, l'aventure et l'émotion dans sa forme la plus pure.
           </h2>
+          <div className="mt-10 flex justify-center sm:justify-start">
+            <a
+              href={VIDEO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 items-center border border-white/18 px-7 text-sm uppercase tracking-[0.22em] text-white transition duration-500 hover:border-[#c8ad7f]/70 hover:bg-[#c8ad7f]/10"
+            >
+              Voir la vidéo
+            </a>
+          </div>
         </RevealText>
       </div>
     </section>

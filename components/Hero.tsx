@@ -60,7 +60,7 @@ export default function Hero() {
             animate={reduceMotion ? undefined : { opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            Entre liberté et puissance
+            Born to feel
           </motion.h1>
           <motion.p
             className="mt-5 text-sm uppercase tracking-[0.28em] text-[#c8ad7f]"
@@ -79,9 +79,6 @@ export default function Hero() {
             <p className="max-w-md text-base leading-7 text-white/72 sm:max-w-xl sm:text-xl sm:leading-8">
               Là où la nature s’ouvre, les corps vibrent, et où les machines rugissent.
             </p>
-            <p className="mt-4 text-sm uppercase tracking-[0.28em] text-[#c8ad7f]">
-              Aventure / Voyage — Sport — Sport mécanique
-            </p>
           </motion.div>
           <motion.a
             href="#portfolio"
@@ -96,7 +93,7 @@ export default function Hero() {
       </div>
 
       <div className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-3 text-xs uppercase tracking-[0.28em] text-white/40 md:flex">
-        <span>Scroll</span>
+        <span>Swipe</span>
         <span className="h-12 w-px overflow-hidden bg-white/15">
           <motion.span
             className="block h-5 w-px bg-[#c8ad7f]"

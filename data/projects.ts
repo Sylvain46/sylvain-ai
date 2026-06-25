@@ -17,11 +17,10 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Aventure et Voyage",
-    category: "Paysages & itinérance",
+    category: "paysage, wildlife & street",
     countLabel: "16 photos",
     image: publicPath("/media/Aventure et voyage/couverture Aventure.jpg"),
-    description:
-      "Routes, horizons et paysages puissants capturés comme des fragments d'aventure et de voyage.",
+    description: "Là où le monde s'étire comme une séquence sans fin.",
     photos: [
       { src: publicPath("/media/Aventure et voyage/DSC02159.jpg"), alt: "Scene d'aventure et de voyage" },
       { src: publicPath("/media/Aventure et voyage/DSC02259.jpg"), alt: "Instant de voyage" },
@@ -46,8 +45,7 @@ export const projects: Project[] = [
     category: "Émotions brutes",
     countLabel: "14 photos",
     image: publicPath("/media/Portraits/Couverture portrait.jpg"),
-    description:
-      "Des regards, des présences et des instants humains travaillés avec douceur et intensité.",
+    description: "Quand les regards portent des histoires que les mots ne disent pas.",
     photos: [
       { src: publicPath("/media/Portraits/DSC00390.jpg"), alt: "Portrait naturel" },
       { src: publicPath("/media/Portraits/DSC01113.jpg"), alt: "Portrait en lumiere naturelle" },
@@ -67,11 +65,11 @@ export const projects: Project[] = [
   },
   {
     title: "Sport",
-    category: "Action & mouvement",
+    category: "tension et adrénaline",
     countLabel: "18 photos",
     image: publicPath("/media/sport/Couverture sport.jpg"),
     description:
-      "Le mouvement, l'effort et l'énergie d'une scène captés dans une approche vive et immersive.",
+      "La puissance en action, l'adrénaline comme langage, dans une immersion continue.",
     photos: [
       { src: publicPath("/media/sport/1.jpg"), alt: "Photographie sportive" },
       { src: publicPath("/media/sport/2.jpg"), alt: "Action sportive" },
@@ -95,11 +93,11 @@ export const projects: Project[] = [
   },
   {
     title: "Sport mécanique",
-    category: "Vitesse & caractère",
+    category: "élégance et brutalité",
     countLabel: "11 photos",
     image: publicPath("/media/Sport mecanique /Couverture sport mecanique.jpg"),
     description:
-      "Carrosseries, routes et tension visuelle autour de la vitesse et de la matière.",
+      "Des corps mécaniques façonnés par la vitesse et la tension de l'asphalte.",
     photos: [
       { src: publicPath("/media/Sport mecanique /DSC00012.jpg"), alt: "Sport mécanique" },
       { src: publicPath("/media/Sport mecanique /DSC00027.jpg"), alt: "Detail automobile" },

@@ -26,7 +26,7 @@ export default function ServicesSection() {
         <RevealText>
           <p className="eyebrow">Services</p>
           <h2 className="mt-5 max-w-3xl text-5xl font-extralight leading-tight text-white sm:text-6xl">
-            Des images vraies, construites avec intention.
+            Des images façonnées pour des souvenirs éternels.
           </h2>
         </RevealText>
 

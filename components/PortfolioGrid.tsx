@@ -16,7 +16,7 @@ export default function PortfolioGrid() {
           <p className="eyebrow">Portfolio</p>
           <div className="mt-5 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <h2 className="max-w-3xl text-4xl font-extralight leading-tight text-white sm:text-6xl">
-              Albums photo par univers.
+              Mon univers.
             </h2>
             <p className="max-w-sm text-sm leading-7 text-white/56">
               Ouvrez un dossier pour parcourir toutes les images d'une catégorie : aventure,
